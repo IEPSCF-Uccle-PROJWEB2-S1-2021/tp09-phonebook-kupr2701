@@ -1,0 +1,99 @@
+<%- include('header'); -%>
+<div class="container">
+  <h1><%= title %></h1>
+
+  <div class="card mb-5">
+    <div class="card-body">
+      <h2 cladd="card-title">phonebook content</h2>
+      <table class="table d-none" id="phonebook-table">
+        <thead>
+          <tr>
+            <th scope="column">lastName</th>
+            <th scope="column">firstName</th>
+            <th scope="column">birthDate</th>
+            <th scope="column">phoneNumber</th>
+            <th scope="column">emailAddress</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+      <div class="alert alert-danger d-none" role="alert" id="loading-alert">
+        Cannot load the list .
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <h2 class="card-title">New phonebook</h2>
+      <div class="alert alert-danger d-none" role="alert" id="sending-failure">
+        Could not create this new phonebook.
+      </div>
+      <form  method="GET" class="needs-validation" novalidate id="phonebook-form" >
+        <div class="mb-3">
+          <label for="lastNameInput" class="form-label">lastName</label>
+          <input
+            type="text"
+            name="lastName"
+            required
+            minlength="3"
+            placeholder="joel"
+            id="lastNameInput"
+            class="form-control"
+          />
+          <div class="invalid-feedback">lastName is required</div>
+        </div>
+        <div class="mb-3">
+          <label for="firstNameInput" class="form-label">firstName</label>
+          <input
+            type="text"
+            name="firstName"
+            required
+            minlength="3"
+            placeholder="kuifo"
+            id="firstNameInput"
+            class="form-control"
+          />
+          <div class="invalid-feedback">firstName is required</div>
+        </div>
+        <div class="mb-3">
+          <label for="birthDate" class="form-label">birthDate</label>
+          <input
+            type="date"
+            name="birthDate"
+            placeholder="YYYY-MM-DD"
+            id="birthDateInput"
+            class="form-control"
+          />
+          <div class="mb-3">
+            <label for="phoneNumber" class="form-label">phoneNumber</label>
+            <input
+              type="number"
+              name="phoneNumber"
+              placeholder="+32470123456"
+              id="phoneNumberInput"
+              class="form-control"
+            />
+            <div class="mb-3">
+              <label for="emailAddress" class="form-label">emailAddress</label>
+              <input
+                type="email"
+                name="emailAddress"
+                placeholder="joel@gmail.be"
+                id="emailAddressInput"
+                class="form-control"
+              />
+        </div>
+        <div class="mb-3">
+          <button type="submit" class="btn btn-primary">Add</button>
+          <button type="reset" class="btn btn-outline-secondary">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="/scripts/phonebook-jscript.js" defer></script>
+<%- include('footer') -%>
